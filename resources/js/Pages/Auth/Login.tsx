@@ -7,6 +7,11 @@ import PrimaryButton from '@/Components/PrimaryButton';
 import TextInput from '@/Components/TextInput';
 import { Head, Link, useForm } from '@inertiajs/react';
 
+/**
+ * ログイン画面
+ */
+
+// 引数の型宣言
 export default function Login({ status, canResetPassword }: { status?: string, canResetPassword: boolean }) {
     const { data, setData, post, processing, errors, reset } = useForm({
         email: '',
@@ -20,6 +25,7 @@ export default function Login({ status, canResetPassword }: { status?: string, c
         };
     }, []);
 
+    // Eventの型としてFormEventHandlerを指定
     const submit: FormEventHandler = (e) => {
         e.preventDefault();
 
