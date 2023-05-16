@@ -8,7 +8,7 @@ import { PageProps } from '@/types';
 import { Link as MuiLink, Button } from '@mui/material'; 
 
 
-export default function Index({ auth, blogs }: PageProps<{ blogs: { id: number, title: string, content: string }}>) {
+export default function Index({ auth, blogs }: PageProps<{ blogs: {map: any; id: number, title: string, content: string }}>) {
     return (
         <AuthenticatedLayout
             user={auth.user}
