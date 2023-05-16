@@ -1,7 +1,11 @@
 import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout';
 import { Head, Link } from '@inertiajs/react';
 import { PageProps } from '@/types';
-import PrimaryButton from '@/Components/PrimaryButton';
+// import PrimaryButton from '@/Components/PrimaryButton';
+
+// Material UIをインポート
+// asキーワードを使用し、他のLinkコンポーネントとの衝突を防ぐ
+import { Link as MuiLink, Button } from '@mui/material'; 
 
 
 export default function Index({ auth, blogs }: PageProps<{ blogs: { id: number, title: string, content: string }}>) {
@@ -19,9 +23,14 @@ export default function Index({ auth, blogs }: PageProps<{ blogs: { id: number, 
                         <div className="p-6 bg-white border-b border-gray-200"> 
                             <div>
                                 {/* 新規作成ボタン */}
-                                <Link href={route("blog.create")}>
+                                {/* <Link href={route("blog.create")}>
                                     <PrimaryButton type="button">新規作成</PrimaryButton>
-                                </Link>
+                                </Link> */}
+
+                                {/* Material UIを使用し、新規作成ボタンを実装 */}
+                                <MuiLink href={route("blog.create")}>
+                                    <Button variant="contained" color="primary">新規作成</Button>
+                                </MuiLink>
                             </div>
                             <table>
                                 <thead>
