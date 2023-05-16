@@ -5,15 +5,16 @@ namespace App\Http\Controllers;
 use App\Models\Blog;
 use App\Http\Requests\StoreBlogRequest;
 use App\Http\Requests\UpdateBlogRequest;
+use Inertia\Inertia;
 
 class BlogController extends Controller
 {
     /**
-     * Display a listing of the resource.
+     * 一覧表示
      */
     public function index()
     {
-        //
+        return Inertia::render('Blog/Index', ['blogs'=>Blog::all()]);
     }
 
     /**
