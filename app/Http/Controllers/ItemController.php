@@ -14,7 +14,7 @@ class ItemController extends Controller
      */
     public function index()
     {
-        return Inertia::render('Item/Index');
+        return Inertia::render('Item/Index', ['items'=>Item::all()]);
     }
 
     /**
