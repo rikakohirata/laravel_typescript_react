@@ -48,6 +48,8 @@ Route::middleware('auth')->group(function () {
             ]);
     // フォーム
     Route::get('/form', [FormController::class, 'index'])->name('form.index');
+    // アイテム
+    Route::get('/item', [ItemController::class, 'index'])->name('item.index');
 });
 
 require __DIR__.'/auth.php';
