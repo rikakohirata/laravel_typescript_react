@@ -19,31 +19,44 @@ export default function Index({ auth }: PageProps) {
         >
             <Head title="Sample Form" />
 
-            <Container maxWidth="xs">
-                <Box
+            {/* フォーム要素の幅を調整 */}
+            <Container maxWidth="xs"> 
+
+                {/* sxプロパティでレイアウトやスタイルを指定
+                    divタグが生成されフォーム全体を囲んでいる */}
+                <Box 
                   sx={{
                     marginTop: 8,
                     display: "flex",
                     flexDirection: "column",
                     alignItems: "center",
                   }}
-                >
+                > 
+                  
+                  {/* h1タグで囲まれた要素
+                      テキストはh4で表示される */}
                   <Typography component="h1" variant="h4">
                     ログイン
                   </Typography>
 
-                  <Box component="form" noValidate sx={{ mt:1 }}>
+                  {/* formタグで囲まれた入力フォーム
+                      noValidate属性でブラウザのデフォルトのバリデーションが無効化され、
+                      独自のバリデーションルールを実装することができる */}
+                  <Box component="form" noValidate sx={{ mt:1 }}> 
+
+                    {/* メールアドレスのテキストフィールド */}
                     <TextField
-                      margin="normal"
-                      required
-                      fullWidth
+                      margin="normal"         // テキストフィールドの垂直方向の間隔を調整
+                      required                // 入力必須、placeholderのテキストに*が付与される
+                      fullWidth               // 横幅が親要素に対して最大になる
                       id="email"
                       label="メールアドレス"
                       name="email"
                       autoComplete="email"
-                      autoFocus
+                      autoFocus               // ページが読み込まれた際、自動的にこのテキストフィールドがフォーカスされる
                     />
 
+                    {/* パスワードのテキストフィールド */}
                     <TextField
                       margin="normal"
                       required
@@ -58,13 +71,15 @@ export default function Index({ auth }: PageProps) {
                     <Button
                       type="submit"
                       fullWidth
-                      variant="contained"
+                      variant="contained"  // ボタンのデザインを指定（塗りつぶしのボタン）
                       sx={{ mt:3, mb:2 }}
                     >
                       ログイン
                     </Button>
 
+                    {/* containerを指定し、各リンクを横並びにする */}
                     <Grid container>
+                      {/* item xsで各リンクが両端に配置される */}
                       <Grid item xs>
                         <Link href="#" variant="body2">
                           パスワードを忘れた
