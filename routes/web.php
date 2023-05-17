@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\BlogController;
+use App\Http\Controllers\ItemController;
+use App\Http\Controllers\FormController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
@@ -44,6 +46,8 @@ Route::middleware('auth')->group(function () {
                 'update' => 'blog.update',
                 'show' => 'blog.show',
             ]);
+    // フォーム
+    Route::get('/form', [FormController::class, 'index'])->name('form.index');
 });
 
 require __DIR__.'/auth.php';
