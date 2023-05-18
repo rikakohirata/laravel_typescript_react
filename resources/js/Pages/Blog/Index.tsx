@@ -7,8 +7,14 @@ import { PageProps } from '@/types';
 // asキーワードを使用し、他のLinkコンポーネントとの衝突を防ぐ
 import { Link as MuiLink, Button } from '@mui/material'; 
 
+// 型エイリアスでBlog型を定義
+type Blog = {
+    id: number;
+    title: string;
+    content: string; 
+};
 
-export default function Index({ auth, blogs }: PageProps<{ blogs: {map: any; id: number, title: string, content: string }}>) {
+export default function Index({ auth, blogs }: PageProps<{ blogs: Blog[] }>) {
     return (
         <AuthenticatedLayout
             user={auth.user}
@@ -40,7 +46,7 @@ export default function Index({ auth, blogs }: PageProps<{ blogs: {map: any; id:
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    {blogs.map((blog: { id: number, title: string, content: string }) => {
+                                    { blogs.map((blog: Blog) => {
                                         return (
                                             <tr key={blog.id}>
                                                 <td className="border px-4 py-2">
