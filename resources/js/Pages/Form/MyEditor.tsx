@@ -1,9 +1,9 @@
 import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout';
 import { Head } from '@inertiajs/react';
 import { PageProps } from '@/types';
-import { useEffect, useState } from 'react';
-import { Editor, EditorState } from 'draft-js';  // Draft.jsをインポート
-import 'draft-js/dist/Draft.css';                // Draft.cssをインポート
+import { useState } from 'react';
+import { Editor, EditorState, RichUtils, DraftEditorCommand } from 'draft-js';  // Draft.jsをインポート
+import 'draft-js/dist/Draft.css';  // Draft.cssをインポート
 
 
 export default function MyEditor({ auth }: PageProps) {
@@ -12,6 +12,19 @@ export default function MyEditor({ auth }: PageProps) {
     const [editorState, setEditorState] = useState(() => 
         EditorState.createEmpty()
     );
+
+    // RichUtilsのhandleKeyCommand
+    // Command + B で太字が適用される
+    // Command + I で斜体が適用される
+    // Command + U で下線が適用される
+    const handleKeyCommand = (command: DraftEditorCommand) => {
+        const newState = RichUtils.handleKeyCommand(editorState, command);
+        if (newState) {
+            setEditorState(newState);
+            return "handled";
+        }
+        return "not-handled";
+    };
 
   return (
     <AuthenticatedLayout
@@ -25,6 +38,7 @@ export default function MyEditor({ auth }: PageProps) {
         placeholder="入力してください"
         editorState={editorState}
         onChange={setEditorState}
+        handleKeyCommand={handleKeyCommand}
       />
 
 
