@@ -2,17 +2,17 @@ import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout';
 import { Head } from '@inertiajs/react';
 import { PageProps } from '@/types';
 import { 
-  Container,
-  Box,
-  Typography,
-  Button,
-  Table,
-  TableBody,
-  TableCell,
-  TableContainer,
-  TableHead,
-  TableRow,
-  Paper,
+    Container,
+    Box,
+    Typography,
+    Button,
+    Table,
+    TableBody,
+    TableCell,
+    TableContainer,
+    TableHead,
+    TableRow,
+    Paper,
 } from '@mui/material';  // Material UIをインポート
 
 export default function Index({ auth, items }: PageProps<{ items: {
@@ -20,8 +20,8 @@ export default function Index({ auth, items }: PageProps<{ items: {
                                                                     id: number; 
                                                                     item_name: string; 
                                                                     category: string; 
-                                                                    price: number 
-                                                                  }}>) {
+                                                                    price: number; 
+                                                                    }}>) {
     return (
         <AuthenticatedLayout
             user={auth.user}
@@ -32,12 +32,12 @@ export default function Index({ auth, items }: PageProps<{ items: {
             {/* 商品一覧を表示 */}
             <Container maxWidth="lg">
                 <Box sx={{ 
-                          mt: '64px',  // margin-top
-                          pb: '16px',  // padding-bottom
-                          borderBottom: 1,
-                          borderColor: 'grey.500',
-                          display: "flex",
-                          justifyContent: 'space-between',
+                        mt: '64px',  // margin-top
+                        pb: '16px',  // padding-bottom
+                        borderBottom: 1,
+                        borderColor: 'grey.500',
+                        display: "flex",
+                        justifyContent: 'space-between',
                 }}>
                     <Typography component="h1" variant="h4">商品一覧</Typography> 
                     <Button variant="contained" sx={{ backgroundColor: '#4B8F8F'}}>新規登録</Button> 
@@ -47,7 +47,7 @@ export default function Index({ auth, items }: PageProps<{ items: {
                         <Table sx={{ 
                                     minWidth: 650,
                                     p: 10  // padding
-                                  }} aria-label="simple table">
+                                    }} aria-label="simple table">
                             <TableHead>
                                 <TableRow>
                                     <TableCell>No</TableCell>
@@ -58,26 +58,22 @@ export default function Index({ auth, items }: PageProps<{ items: {
                             </TableHead>
                             <TableBody>
                                 {items.map((item: { id: number, item_name: string, category: string, price: number }) => (
-                                  <TableRow
-                                    key={item.item_name}
-                                    sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
-                                  >
-                                    <TableCell component="th" scope="row">{item.id}</TableCell>
-                                    <TableCell align="left">{item.item_name}</TableCell>
-                                    <TableCell align="left">{item.category}</TableCell>
-                                    <TableCell align="left">{item.price}</TableCell>
-                                  </TableRow>
+                                    <TableRow
+                                        key={item.item_name}
+                                        sx={{ 
+                                            '&:last-child td, &:last-child th': { border: 0 } 
+                                    }}>
+                                        <TableCell component="th" scope="row">{item.id}</TableCell>
+                                        <TableCell align="left">{item.item_name}</TableCell>
+                                        <TableCell align="left">{item.category}</TableCell>
+                                        <TableCell align="left">{item.price}</TableCell>
+                                    </TableRow>
                                 ))}
                             </TableBody>
                         </Table>
                     </TableContainer>
                 </Box>
             </Container>
-
-
-
-
-            
         </AuthenticatedLayout>
     );
 }
