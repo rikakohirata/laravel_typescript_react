@@ -28,11 +28,14 @@ export default function Authenticated({ user, header, children }: PropsWithChild
                                 <NavLink href={route('blog.index')} active={route().current('blog.index')}>
                                     Blog
                                 </NavLink>
+                                <NavLink href={route('item.index')} active={route().current('item.index')}>
+                                    Item
+                                </NavLink>
                                 <NavLink href={route('form.index')} active={route().current('form.index')}>
                                     Sample Form
                                 </NavLink>
-                                <NavLink href={route('item.index')} active={route().current('item.index')}>
-                                    Item
+                                <NavLink href={route('form.myEditor')} active={route().current('form.myEditor')}>
+                                    Rich Text editor
                                 </NavLink>
                             </div>
                         </div>
