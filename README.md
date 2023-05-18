@@ -19,7 +19,7 @@ Material UIを使用しています。
 - ログイン機能（Laravel Breeze）
 - ブログ一覧機能
 - 商品一覧機能（Material UI）
-- リッチエディタ（Draft.js）
+- リッチテキストエディタ（Draft.js）
 
 # プロジェクトの起動
 ```
