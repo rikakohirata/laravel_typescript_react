@@ -15,13 +15,15 @@ import {
     Paper,
 } from '@mui/material';  // Material UIをインポート
 
-export default function Index({ auth, items }: PageProps<{ items: {
-                                                                    map: any;   
-                                                                    id: number; 
-                                                                    item_name: string; 
-                                                                    category: string; 
-                                                                    price: number; 
-                                                                    }}>) {
+// Item型を定義
+type Item = {
+    id: number; 
+    item_name: string; 
+    category: string; 
+    price: number; 
+};
+
+export default function Index({ auth, items }: PageProps<{ items: Item[] }>) {
     return (
         <AuthenticatedLayout
             user={auth.user}
@@ -57,7 +59,7 @@ export default function Index({ auth, items }: PageProps<{ items: {
                                 </TableRow>
                             </TableHead>
                             <TableBody>
-                                {items.map((item: { id: number, item_name: string, category: string, price: number }) => (
+                                {items.map((item: Item ) => (
                                     <TableRow
                                         key={item.item_name}
                                         sx={{ 
