@@ -13,11 +13,13 @@ Material UIを使用しています。
 - inertiajs/inertia-react 0.8.1
 - inertiajs/react 1.0.6
 - mui/material 5.13.0
+- draft-js 0.11.7
 
 # 機能一覧
 - ログイン機能（Laravel Breeze）
 - ブログ一覧機能
 - 商品一覧機能（Material UI）
+- リッチエディタ（Draft.js）
 
 # プロジェクトの起動
 ```
