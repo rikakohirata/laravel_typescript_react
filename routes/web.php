@@ -48,6 +48,8 @@ Route::middleware('auth')->group(function () {
             ]);
     // フォーム
     Route::get('/form', [FormController::class, 'index'])->name('form.index');
+    // リッチエディタ
+    Route::get('/form/myEditor', [FormController::class, 'myEditor'])->name('form.myEditor');
     // アイテム
     Route::get('/item', [ItemController::class, 'index'])->name('item.index');
 });
