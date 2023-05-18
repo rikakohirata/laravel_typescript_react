@@ -10,4 +10,9 @@ class FormController extends Controller
     {
         return Inertia::render('Form/Index');
     }
+
+    public function myEditor()
+    {
+        return Inertia::render('Form/MyEditor');
+    }
 }
