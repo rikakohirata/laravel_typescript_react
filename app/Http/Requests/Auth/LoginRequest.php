@@ -33,6 +33,18 @@ class LoginRequest extends FormRequest
     }
 
     /**
+     * エラーメッセージ
+     */
+    public function messages()
+    {
+        return [
+        'email.required' => 'メールアドレスを入力してください',
+        'password.required' => 'パスワードを入力してください',
+
+        ];
+    }
+
+    /**
      * Attempt to authenticate the request's credentials.
      *
      * @throws \Illuminate\Validation\ValidationException
@@ -82,4 +94,5 @@ class LoginRequest extends FormRequest
     {
         return Str::transliterate(Str::lower($this->input('email')).'|'.$this->ip());
     }
+
 }
