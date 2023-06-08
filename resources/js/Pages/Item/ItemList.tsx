@@ -16,12 +16,13 @@ import {
 // 受け取る引数の型を指定
 type Props = {
   items: Item[];
+  currentItems: Item[];
 };
 
 // 上記で定義した引数の型を指定
 const ItemList = (props: Props) => {
-  // items取り出す
-  const {items} = props;
+  // 引数で受け取った情報を取り出す
+  const {items, currentItems} = props;
 
   return (
     <Container maxWidth="lg">
@@ -51,7 +52,7 @@ const ItemList = (props: Props) => {
                       </TableRow>
                   </TableHead>
                   <TableBody>
-                      {items.map((item: Item ) => (
+                      {currentItems.map((item: Item ) => (
                           <TableRow
                               key={item.item_name}
                               sx={{ 

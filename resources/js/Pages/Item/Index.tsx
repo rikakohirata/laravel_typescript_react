@@ -7,8 +7,7 @@ import Pagination from './Pagination';
 
 
 
-export default function Index({ auth }: PageProps) {
-    const [items, setItems] = useState<Item[]>([]);
+export default function Index({ auth, items }: PageProps< {items: Item[]} >) {
 
     return (
         <AuthenticatedLayout
