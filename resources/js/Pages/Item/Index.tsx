@@ -1,11 +1,8 @@
 import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout';
 import { Head } from '@inertiajs/react';
-import { useState } from 'react';
 import { PageProps } from '@/types';
 import Item from '@/types/type';
-import Pagination from './Pagination';
-
-
+import Page from './Page';
 
 export default function Index({ auth, items }: PageProps< {items: Item[]} >) {
 
@@ -17,7 +14,7 @@ export default function Index({ auth, items }: PageProps< {items: Item[]} >) {
             <Head title="Item" />
             
             {/* ページネーションコンポーネント */}
-            <Pagination items={items} />
+            <Page items={items} />
         </AuthenticatedLayout>
     );
 }

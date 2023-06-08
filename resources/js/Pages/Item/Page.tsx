@@ -2,7 +2,8 @@ import { useState } from 'react';
 import Item from "@/types/type";
 import "../../../css/pagination.css";
 import ItemList from './ItemList';
-import ReactPaginate from 'react-paginate';
+// import ReactPaginate from 'react-paginate';
+import { Pagination } from '@mui/material';  // Material UIをインポート
 
 // 受け取る引数の型を指定
 type Props = {
@@ -10,7 +11,7 @@ type Props = {
 };
 
 // 上記で定義した引数の型を指定
-const Pagination = (props: Props) => {
+const Page = (props: Props) => {
   // 引数で受け取った情報を取り出す
   const {items} = props;
 
@@ -33,21 +34,29 @@ const Pagination = (props: Props) => {
     console.log(`クリックされたページ ${e.selected + 1}`);
     // 2ページ目がクリックされた場合、1 * 3 % 10
     const newOffset = (e.selected * itemsPerPage) % items.length;
-    setItemsOffset(newOffset);
+    // setItemsOffset(newOffset);
+    return newOffset;
   }
 
   return (  
     <>
       {/* 商品一覧コンポーネント */}
       <ItemList items={items} currentItems={currentItems} />
-      {/* ページネーション */}
+      {/* ページネーション 
+          MUI適用したらおかしくなったので修正が必要*/}
+      <Pagination 
+        count={pageCount}            //総ページ数
+        onChange={(e, handlePageClick) => setItemsOffset(handlePageClick)}
+      />
+
+      {/* MUI適用前のコードを残しておく
       <ReactPaginate 
         pageCount={pageCount}
         onPageChange={handlePageClick}
-      />
+      /> */}
     </>
 
   );
 };
 
-export default Pagination;
+export default Page;
