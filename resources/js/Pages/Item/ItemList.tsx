@@ -1,9 +1,9 @@
+import GenerallyButton from '@/Components/GenerallyButton';
 import Item from '@/types/type';
 import { 
   Container,
   Box,
   Typography,
-  Button,
   Table,
   TableBody,
   TableCell,
@@ -24,6 +24,8 @@ const ItemList = (props: Props) => {
   // 引数で受け取った情報を取り出す
   const {items, currentItems} = props;
 
+  const buttonText = '新規登録';
+
   return (
     <Container maxWidth="lg">
       <Box sx={{ 
@@ -35,7 +37,7 @@ const ItemList = (props: Props) => {
               justifyContent: 'space-between',
       }}>
           <Typography component="h1" variant="h4">商品一覧</Typography> 
-          <Button variant="contained" sx={{ backgroundColor: '#4B8F8F'}}>新規登録</Button> 
+          <GenerallyButton buttonText={'新規登録'} />
       </Box>
       <Box sx={{ mt: '64px' }}>
           <TableContainer component={Paper}>

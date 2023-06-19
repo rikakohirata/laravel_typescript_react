@@ -2,10 +2,11 @@ import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout';
 import { Head, Link } from '@inertiajs/react';
 import { PageProps } from '@/types';
 // import PrimaryButton from '@/Components/PrimaryButton';
+import GenerallyButton from '@/Components/GenerallyButton';
 
 // Material UIをインポート
 // asキーワードを使用し、他のLinkコンポーネントとの衝突を防ぐ
-import { Link as MuiLink, Button } from '@mui/material'; 
+import { Link as MuiLink } from '@mui/material'; 
 
 // 型エイリアスでBlog型を定義
 type Blog = {
@@ -35,7 +36,7 @@ export default function Index({ auth, blogs }: PageProps<{ blogs: Blog[] }>) {
 
                                 {/* Material UIを使用し、新規作成ボタンを実装 */}
                                 <MuiLink href={route("blog.create")}>
-                                    <Button variant="contained" color="primary">新規作成</Button>
+                                    <GenerallyButton buttonText={'新規登録'} />
                                 </MuiLink>
                             </div>
                             <table>
