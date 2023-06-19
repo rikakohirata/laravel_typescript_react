@@ -34,11 +34,15 @@ class AuthenticatedSessionController extends Controller
 
         $request->session()->regenerate();
 
+        // ユーザー情報をセッションに保存
+        $request->session()->put('login_user', true);
+        $request->session()->put('login_user_email', $request->email);
+
         return redirect()->intended(RouteServiceProvider::HOME);
     }
 
     /**
-     * Destroy an authenticated session.
+     * ログアウト処理を実行
      */
     public function destroy(Request $request): RedirectResponse
     {
