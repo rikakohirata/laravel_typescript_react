@@ -1,5 +1,3 @@
-type generallyButton= {
+export type generallyButton= {
   buttonText: string;
 };
-
-export default generallyButton;

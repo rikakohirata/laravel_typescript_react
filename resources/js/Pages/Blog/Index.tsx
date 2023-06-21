@@ -2,7 +2,7 @@ import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout';
 import { Head, Link } from '@inertiajs/react';
 import { PageProps } from '@/types';
 // import PrimaryButton from '@/Components/PrimaryButton';
-import GenerallyButton from '@/Components/GenerallyButton';
+import { GenerallyButton } from '@/Components/GenerallyButton';
 
 // Material UIをインポート
 // asキーワードを使用し、他のLinkコンポーネントとの衝突を防ぐ
