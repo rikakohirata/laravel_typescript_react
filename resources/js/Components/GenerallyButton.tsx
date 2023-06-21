@@ -1,9 +1,9 @@
 
-import commonColor from '@/styles/common';
-import generallyButton from '@/types/generallyButton';
+import { commonColor } from '@/styles/common';
+import { generallyButton } from '@/types/generallyButton';
 import { Button } from '@mui/material'; 
 
-const GenerallyButton = (props: generallyButton) => {
+export const GenerallyButton = (props: generallyButton) => {
     const {buttonText} =props;
     return (
         
@@ -13,4 +13,3 @@ const GenerallyButton = (props: generallyButton) => {
     );
 };
 
-export default GenerallyButton;
