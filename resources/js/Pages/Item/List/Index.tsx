@@ -1,11 +1,11 @@
-import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout';
 import { Head } from '@inertiajs/react';
 import { PageProps } from '@/types';
-import Item from '@/types/type';
-import Pagination from './Pagination';
+import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout';
+import { Pagination } from './components/Pagination';
 
-export default function Index({ auth, items }: PageProps< {items: Item[]} >) {
 
+export default function Index(props: PageProps) {
+    const { auth, items } = props;
     return (
         <AuthenticatedLayout
             user={auth.user}

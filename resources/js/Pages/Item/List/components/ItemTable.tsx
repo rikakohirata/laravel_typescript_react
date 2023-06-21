@@ -1,5 +1,3 @@
-import GenerallyButton from '@/Components/GenerallyButton';
-import Item from '@/types/type';
 import { 
   Container,
   Box,
@@ -12,18 +10,12 @@ import {
   TableRow,
   Paper,
 } from '@mui/material';  // Material UIをインポート
+import { Item } from '@/types';
+import { GenerallyButton } from '@/Components/GenerallyButton';
 
-// 受け取る引数の型を指定
-type Props = {
-  items: Item[];
-  currentItems: Item[];
-};
 
 // 上記で定義した引数の型を指定
-const ItemList = (props: Props) => {
-  // 引数で受け取った情報を取り出す
-  const {items, currentItems} = props;
-
+export const ItemTable = ({currentItems}: {currentItems: Item[]}) => {
   const buttonText = '新規登録';
 
   return (
@@ -73,5 +65,3 @@ const ItemList = (props: Props) => {
     </Container>
   );
 };
-
-export default ItemList;

@@ -1,18 +1,15 @@
 import { useState } from 'react';
-import Item from "@/types/type";
-import "../../../css/pagination.css";
-import ItemList from './ItemList';
+import "../../../../../css/pagination.css";
+import { ItemTable } from './ItemTable';
 import ReactPaginate from 'react-paginate';
+import { Item } from '@/types';
 
-// 受け取る引数の型を指定
-type Props = {
-  items: Item[];
-};
 
 // 上記で定義した引数の型を指定
-const Pagination = (props: Props) => {
+export const Pagination = ({items}: {items: Item[]}) => {
+  console.dir(items);
   // 引数で受け取った情報を取り出す
-  const {items} = props;
+  // const {items} = props;
   // 1ページに表示する要素数
   const itemCount = 10;
 
@@ -41,7 +38,7 @@ const Pagination = (props: Props) => {
   return (  
     <>
       {/* 商品一覧コンポーネント */}
-      <ItemList items={items} currentItems={currentItems} />
+      <ItemTable currentItems={currentItems} />
       <ReactPaginate 
         // 設定
         pageCount={pageCount}             // 総ページ数
@@ -71,5 +68,3 @@ const Pagination = (props: Props) => {
 
   );
 };
-
-export default Pagination;
