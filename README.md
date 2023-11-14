@@ -1,8 +1,8 @@
 # Inertiaサンプルアプリ
 **目的：アーキテクトの検証** <br />
-
-[breeze_inertia_react](https://github.com/rikakohirata/breeze_inertia_react) のTypeScript版です。<br />
-Material UIを使用しています。
+- [breeze_inertia_react](https://github.com/rikakohirata/breeze_inertia_react) のTypeScript版
+- Material UIの導入
+- Draft.jsの導入
 
 # 使用技術
 - PHP 8.1.10
